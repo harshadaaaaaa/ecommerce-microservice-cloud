@@ -1,0 +1,20 @@
+{
+  "name": "shopnest-microservices-ecommerce",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ShopNest ecommerce demo with an API gateway",
+  "scripts": {
+    "start": "concurrently -k -n products,cart,orders,gateway \"node product-service/server.js\" \"node cart-service/server.js\" \"node order-service/server.js\" \"node gateway/server.js\"",
+    "products": "node product-service/server.js",
+    "cart": "node cart-service/server.js",
+    "orders": "node order-service/server.js",
+    "gateway": "node gateway/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "express": "^4.21.2"
+  }
+}
